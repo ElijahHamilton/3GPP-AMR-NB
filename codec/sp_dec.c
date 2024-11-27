@@ -2218,7 +2218,7 @@ static void Dec_lag3( Word32 index, Word32 t0_min, Word32 t0_max, Word32 i_subfr
  *    n = 0, ...,39, t = 0, ...,5.
  *
  *    The interpolation filter b60 is based on a Hamming windowed sin(x)/x
- *    function truncated at ± 59 and padded with zeros at ± 60 (b60(60)=0)).
+ *    function truncated at Â± 59 and padded with zeros at Â± 60 (b60(60)=0)).
  *    The filter has a cut-off frequency (-3 dB) at 3 600 Hz in
  *    the over-sampled domain.
  *
@@ -5253,9 +5253,9 @@ void Speech_Decode_Frame( void *st, enum Mode mode, Word16 *parm, enum
 for ( i = 0; i < L_FRAME; i++ ) {
 #ifndef NO13BIT
       /* Truncate to 13 bits */
-      synth[i] = ( Word16 )( synth_speech[i] & 0xfff8 );
+      synth[i] = ( Word16 )( synth_speech[i] & 0xfff8 )/2;
 #else
-      synth[i] = ( Word16 )( synth_speech[i]);
+      synth[i] = ( Word16 )( synth_speech[i])/2;
 #endif
    }
 
