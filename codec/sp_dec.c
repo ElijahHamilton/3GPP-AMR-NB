@@ -5253,9 +5253,9 @@ void Speech_Decode_Frame( void *st, enum Mode mode, Word16 *parm, enum
 for ( i = 0; i < L_FRAME; i++ ) {
 #ifndef NO13BIT
       /* Truncate to 13 bits */
-      synth[i] = ( Word16 )( synth_speech[i] & 0xfff8 )/2;
+      synth[i] = ( Word16 )( synth_speech[i] & 0xfff8 )*2;
 #else
-      synth[i] = ( Word16 )( synth_speech[i])/2;
+      synth[i] = ( Word16 )( synth_speech[i])*2;
 #endif
    }
 
